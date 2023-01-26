@@ -19,6 +19,7 @@ export default {
   },
   methods: {
     async runScript() {
+      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
       const res = await axios.post("https://snowballcompany.webhook.office.com/webhookb2/710b9309-8b4d-4ba8-9574-921f48cdfc44@caf560d4-f4f6-4071-8442-abab6b7b7122/IncomingWebhook/56db4c9f8694475f93b83e9f608dcebd/6d105f93-f0c4-4e82-adea-d784761d81bf", 
       {
         "@type": "MessageCard",
