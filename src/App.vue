@@ -19,27 +19,33 @@ export default {
   },
   methods: {
     async runScript() {
-      axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-      const res = await axios.post("https://snowballcompany.webhook.office.com/webhookb2/710b9309-8b4d-4ba8-9574-921f48cdfc44@caf560d4-f4f6-4071-8442-abab6b7b7122/IncomingWebhook/56db4c9f8694475f93b83e9f608dcebd/6d105f93-f0c4-4e82-adea-d784761d81bf", 
-      {
-        "@type": "MessageCard",
-        "@context": "http://schema.org/extensions",
-        "themeColor": "0076D7",
-        "summary": "Hooks",
-        "sections": [{
-            "activityTitle": "Test Only",
-            "activitySubtitle": "On Project Tango",
-            "markdown": true
-        }]
-      },{
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-      );
+      // https://teams.microsoft.com/l/channel/19%3a92a4752be3b845af881f0912db68d97b%40thread.tacv2/Test-ServerLogs?groupId=710b9309-8b4d-4ba8-9574-921f48cdfc44&tenantId=caf560d4-f4f6-4071-8442-abab6b7b7122
+    //   var card = {
+    //     "type": "message",
+    //     "attachments": [
+    //         {
+    //             "contentType": "application/vnd.microsoft.card.adaptive",
+    //             "contentUrl": null,
+    //             "content": {
+    //                 "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    //                 "type": "AdaptiveCard",
+    //                 "version": "1.2",
+    //                 "body": [
+    //                     {
+    //                         "type": "TextBlock",
+    //                         "text": "Submitted response:"
+    //                     }
+    //                 ]
+    //             }
+    //         }
+    //     ]
+    // }
+
+      const res = await axios.post("http://localhost:3001/api/send?message=Test Only");
 
       console.log(res)
     }
+
   },
   created() {
     console.log('Created...')
